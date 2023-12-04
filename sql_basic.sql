@@ -115,7 +115,7 @@ FROM
     `countries`
 WHERE
     `indep_year` < 1990
-OR  `population` >= 100000
+OR  `population` > 100000
 ;
 
 -- 問13
@@ -170,15 +170,11 @@ SELECT
     `name`,
     `life_expectancy`
 FROM
-    SELECT
-        ` name`,
-        `life_expectancy`
-    FROM
-        ` countries`
-    WHERE
-        ` life_expectancy` IS NOT NULL
-    ORDER BY
-        ` life_expectancy` DESC
+    `countries`
+WHERE
+    `life_expectancy` IS NOT NULL
+ORDER BY
+    `life_expectancy` DESC
 ;
 
 -- 問18
@@ -193,7 +189,7 @@ WHERE
     `life_expectancy` IS NOT NULL
 ORDER BY
     `life_expectancy` DESC,
-    `indep_year` ASC
+    `indep_year` DESC
 ;
 
 -- 問19
